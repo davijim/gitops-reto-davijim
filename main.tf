@@ -1,7 +1,7 @@
 provider "aws" {
   region = "eu-west-1"
 }
-resource "aws_s3_bucket" "mapfre-gitops-davijim" {
+resource "aws_s3_bucket" "mapfre-gitops-davijim2" {
   bucket = "mapfre-gitops-davijim2"
   tags = {
     Name        = "reto-s3-davijim2"
