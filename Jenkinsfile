@@ -28,5 +28,23 @@ pipeline {
                 sh 'terraform apply --auto-approve'
             }
         }
-    }
+        stage ('Ansible otras ramas') {
+            when {
+                not {
+                    branch 'main'
+                }
+            }
+            steps {
+                sh 'ansible-playbook ansible_reto.yml --check'
+            }
+        }
+        stage ('Ansible rama Main') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh 'ansible-playbook ansible_reto.yml'
+            }  
+        }
+    } 
 }
